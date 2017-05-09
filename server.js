@@ -1,22 +1,36 @@
-var path = require('path');
-var webpack = require('webpack');
-var express = require('express');
-var config = require('./webpack.config');
+/* eslint no-console: 0 */
 
-var app = express();
-var compiler = webpack(config);
+const path = require('path');
+const webpack = require('webpack');
+const express = require('express');
+const config = require('./webpack.config');
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  publicPath: config.output.publicPath
-}));
+const app = express();
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.set('port', (process.env.PORT || 3000));
 
-app.get('*', function(req, res) {
+if (process.env.NODE_ENV !== 'production') {
+  const webpack = require('webpack');
+  const config = require('./webpack.config');
+  const compiler = webpack(config);
+  app.use(require('webpack-dev-middleware')(compiler, {
+    publicPath: config.output.publicPath,
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+} else {
+  app.use('*.js', (req, res, next) => {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    next();
+  });
+  app.use(express.static(path.join(__dirname, 'dist')));
+}
+
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(3000, function(err) {
+app.listen(3000, (err) => {
   if (err) {
     return console.error(err);
   }
