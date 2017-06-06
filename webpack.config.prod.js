@@ -61,12 +61,10 @@ module.exports = {
     {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style', 'css'),
-      include: path.join(__dirname, 'public'),
     },
     {
       test: /\.svg$/,
       loader: 'file-loader',
-      include: path.join(__dirname, 'public'),
     }],
   },
   resolve: {
