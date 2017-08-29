@@ -7,6 +7,7 @@ const config = require('./webpack.config');
 
 const app = express();
 
+app.set('view engine', 'ejs');
 app.set('port', (process.env.PORT || 3000));
 
 if (process.env.NODE_ENV !== 'production') {
@@ -15,6 +16,10 @@ if (process.env.NODE_ENV !== 'production') {
   const compiler = webpack(config);
   app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: config.output.publicPath,
+    stats: {
+  		colors: true,
+      chunks: false,
+  	},
   }));
   app.use(require('webpack-hot-middleware')(compiler));
 } else {
@@ -27,7 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.render('index');
 });
 
 app.listen(3000, (err) => {

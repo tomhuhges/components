@@ -68,6 +68,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "ejs": "^2.5.7",
     "preact": "^8.1.0",
     "preact-compat": "^3.16.0",
     "react": "^0.14.6",

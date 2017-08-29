@@ -24,7 +24,7 @@ module.exports = {
       root: process.cwd(),
     }),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'views/index.ejs',
     }),
     new ExtractTextPlugin('style.[contenthash].css'),
     new webpack.optimize.DedupePlugin(),

@@ -13,10 +13,15 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/',
   },
+  stats: {
+    options: {
+      chunks: false,
+    },
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.ejs',
+      template: 'views/index.ejs',
     }),
   ],
   module: {
