@@ -1,6 +1,0 @@
-@each $font, $style in $fonts {
-  .#{$font} {
-    font-family: font($font);
-    font-weight: 200;
-  }
-}

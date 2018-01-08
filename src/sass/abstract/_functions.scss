@@ -1,7 +1,0 @@
-@function color($name, $shade: base) {
-    @return map-get(map-get($colors, $name), $shade);
-}
-
-@function font($type) {
-    @return map-get($fonts, $type);
-}
