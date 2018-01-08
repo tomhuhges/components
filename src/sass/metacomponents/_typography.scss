@@ -1,0 +1,29 @@
+.typography__container {
+  background-color: color(blue, pale);
+  padding: 10px 20px;
+
+  .row:nth-child(n+3) {
+    border-top: 1px solid color(blue, light);
+  }
+
+  .table-header h5 {
+    text-transform: uppercase;
+    color: color(blue)
+  }
+
+  .align--right {
+    display: none;
+    &:nth-child(3n) {
+      @include media('>=medium') {
+        display: block;
+      }
+    }
+    @include media('>=large') {
+      display: block;
+    }
+  }
+
+  pre {
+    background-color: color(blue, light);
+  }
+}
