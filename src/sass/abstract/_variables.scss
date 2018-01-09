@@ -1,0 +1,57 @@
+@import '../../node_modules/include-media/dist/include-media.scss';
+
+$breakpoints: (
+  small:  320px,
+  medium: 768px,
+  large:  1024px,
+  huge:   1200px,
+);
+
+$colors: (
+  blue: (
+    base:  #4343ff,
+    mid:   #9494ff,
+    light: #c4c4ff,
+    pale:  #ededff,
+  ),
+  red: (
+    base:  #ff4f4f,
+    mid: #ff9494,
+    light: #ffc4c4,
+    pale: #ffeded,
+  ),
+  green: (
+    base:  #11e081,
+    mid: #71f4b7,
+    light: #a0f8cf,
+    pale: #e3fdf1,
+  ),
+  yellow: (
+    base:  #FFD700,
+    mid: #ffed85,
+    light: #fff6c2,
+    pale: #fffae0,
+  ),
+  black: (
+    base:  #333,
+  ),
+  grey: (
+    base:  #666,
+    mid:   #999,
+    light: #ccc,
+    pale:  #eee,
+  ),
+  white: (
+    base:  #fff,
+  ),
+  transparent: (
+    base: transparent,
+  )
+);
+
+$fonts: (
+  sans-serif: ('Proxima Nova', Helvetica, Arial, sans-serif),
+  monospace: ('Roboto Mono', monospace)
+);
+
+$spacer: 12px;

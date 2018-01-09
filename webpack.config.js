@@ -31,6 +31,11 @@ module.exports = {
       include: path.join(__dirname, 'src'),
     },
     {
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.join(__dirname, 'src'),
+    },
+    {
       test: /\.css$/,
       loaders: ['style-loader', 'css-loader'],
     },
@@ -40,7 +45,7 @@ module.exports = {
     }],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
+    extensions: ['', '.js', '.jsx', '.css', '.scss'],
     modulesDirectories: [
       'node_modules',
     ],
